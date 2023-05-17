@@ -1,18 +1,14 @@
 package sopt.org.MyRealTrip.exception.model;
+import sopt.org.MyRealTrip.exception.Error;
 
 import lombok.Getter;
-
+import lombok.RequiredArgsConstructor;
 @Getter
-public class SoptException extends RuntimeException {
-
+@RequiredArgsConstructor
+public class BusinessException extends RuntimeException{
     private final Error error;
-
-    public SoptException(Error error, String message) {
-        super(message);
-        this.error = error;
-    }
-
     public int getHttpStatus() {
         return error.getHttpStatusCode();
     }
+
 }
