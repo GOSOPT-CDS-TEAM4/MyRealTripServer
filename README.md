@@ -5,12 +5,15 @@
 
 <hr>
 </br>
+
 ## 💽 Database ERD
+
 <img width="721" alt="image" src="https://github.com/GOSOPT-CDS-TEAM4/MyRealTripServer/assets/65851554/ab8ad557-b872-4afc-a256-f7dc8e39d1bc">
 
 </aside>
 <hr>
 </br>
+
 ## 🌳 Branch
 
 🌱 git branch 전략
