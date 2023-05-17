@@ -3,8 +3,8 @@
 고솝트 합동세미나 마이리얼트립 리디자인 서버 레포
 
 
-🌳 Branch
-🌱 git branch 전략
+## 🌳 Branch
+### 🌱 git branch 전략
 
 main branch : 배포 단위 branch
 
@@ -26,10 +26,11 @@ branch 구조
    ├── #1-isuue name1
    └── #2-isuue name2
 
-🧵 Commit Convention
-📍 git commit message convention
+## 🧵 Commit Convention
+### 📍 git commit message convention
 ex) feat(변경한 파일) : 변경 내용 (/#issue num)
 
+'''
 - ✨ feat:      새로운 기능 구현
 - 🐛 fix:       버그, 오류 해결
 - 🧹 chore:     src 또는 test 파일을 수정하지 않는 기타 변경 사항 ( 새로운 파일 생성, 파일 이동, 이름 변경 등 )
@@ -43,3 +44,4 @@ ex) feat(변경한 파일) : 변경 내용 (/#issue num)
 - 📦 ci:      CI 구성 파일 및 스크립트 변경
 - Merge: 다른브렌치를 merge하는 경우
 - Init : Initial commit을 하는 경우
+'''
