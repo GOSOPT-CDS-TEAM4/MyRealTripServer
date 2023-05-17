@@ -8,26 +8,31 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Entity
+@Table(name="tour_course")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Scrap extends AuditingTimeEntity{
-
+public class TourCourse extends AuditingTimeEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "scrap_id")
+    @Column(name = "tour_course_id")
     private Long id;
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="user_id")
-    private User user;
+    private Long index;
 
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "tour_id")
     private Tour tour;
 
+    @ManyToOne(fetch=FetchType.LAZY)
+    @JoinColumn(name = "course_id")
+    private Course course;
+
+
     @Builder
-    public Scrap(User user, Tour tour){
-        this.user=user;
+    public TourCourse(Long index, Tour tour, Course course){
+        this.index=index;
         this.tour=tour;
+        this.course=course;
+
     }
 }

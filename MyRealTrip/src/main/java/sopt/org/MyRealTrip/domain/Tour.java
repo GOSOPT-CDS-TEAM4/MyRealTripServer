@@ -19,7 +19,7 @@ public class Tour extends AuditingTimeEntity{
     @Column(name = "tour_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "location_id")
     private Location location;
 
@@ -41,15 +41,14 @@ public class Tour extends AuditingTimeEntity{
     private String excludedOption;
     private String image;
 
-    @ManyToMany
-    @JoinColumn(name = "course_id")
-    private List<Course> courseList;
+    @OneToMany(mappedBy = "tour")
+    private List<TourCourse> tourCourseList;
 
     @OneToMany(mappedBy = "tour")
     private List<Review> reviewList;
 
-    public void addCourse(Course course){
-        courseList.add(course);
+    public void addTourCourse(TourCourse tourCourse){
+        tourCourseList.add(tourCourse);
 
     }
 
@@ -81,7 +80,7 @@ public class Tour extends AuditingTimeEntity{
         this.includedOption=includedOption;
         this.excludedOption=excludedOption;
         this.image=image;
-        this.courseList=new ArrayList<>();
+        this.tourCourseList=new ArrayList<>();
         this.reviewList=new ArrayList<>();
 
     }

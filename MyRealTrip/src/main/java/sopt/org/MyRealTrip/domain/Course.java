@@ -17,7 +17,7 @@ public class Course extends AuditingTimeEntity{
     @Column(name = "course_id")
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "location_id")
     private Location location;
 
