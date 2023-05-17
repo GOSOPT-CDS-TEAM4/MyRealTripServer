@@ -3,34 +3,49 @@
 고솝트 합동세미나 마이리얼트립 리디자인 서버 레포
 
 
+<hr>
+</br>
+
 ## 🌳 Branch
-### 🌱 git branch 전략
 
-main branch : 배포 단위 branch
+🌱 git branch 전략
 
-dev branch : 주요 개발 branch, main merge 전 거치는 branch
+`main branch` : 배포 단위 branch
 
-feat branch: 각자 개발 branch
+`dev branch` : 주요 개발 branch, main merge 전 거치는 branch
 
-할 일 issue 등록 후 issue 번호와 isuue 이름으로 branch 생성 후 작업
-ex) feat/#issue num-isuue name(기능요약)
-해당 branch 작업 완료 후 PR 보내기
-항상 local에서 충돌 해결 후 → remote에 올리기
-reviewer에 서로 tag후 code-review
-comment 전 merge 불가!
-review반영 후, 본인이 merge.
-branch 구조
+`feat branch`: 각자 개발 branch
+
+- 할 일 issue 등록 후 issue 번호와 isuue 이름으로 branch 생성 후 작업
+  - ex) feat/#`issue num`-`isuue name(기능요약)`
+- 해당 branch 작업 완료 후 PR 보내기
+  - 항상 local에서 충돌 해결 후 → remote에 올리기
+  - reviewer에 서로 tag후 code-review
+  - comment 전 merge 불가!
+  - review반영 후, 본인이 merge.
+
+### branch 구조
+
+```jsx
 - main
 - dev
 - feat
    ├── #1-isuue name1
    └── #2-isuue name2
+```
+
+</aside>
+<hr>
+</br>
 
 ## 🧵 Commit Convention
-### 📍 git commit message convention
-ex) feat(변경한 파일) : 변경 내용 (/#issue num)
 
-'''
+<aside>
+📍  git commit message convention
+
+`ex) feat(변경한 파일) : 변경 내용 (/#issue num)`
+
+```plain
 - ✨ feat:      새로운 기능 구현
 - 🐛 fix:       버그, 오류 해결
 - 🧹 chore:     src 또는 test 파일을 수정하지 않는 기타 변경 사항 ( 새로운 파일 생성, 파일 이동, 이름 변경 등 )
@@ -44,4 +59,4 @@ ex) feat(변경한 파일) : 변경 내용 (/#issue num)
 - 📦 ci:      CI 구성 파일 및 스크립트 변경
 - Merge: 다른브렌치를 merge하는 경우
 - Init : Initial commit을 하는 경우
-'''
+```
