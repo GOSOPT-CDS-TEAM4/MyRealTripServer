@@ -12,6 +12,8 @@ import sopt.org.MyRealTrip.infrastructure.ScrapRepository;
 import sopt.org.MyRealTrip.infrastructure.TourRepository;
 import sopt.org.MyRealTrip.infrastructure.UserRepository;
 
+import java.util.Optional;
+
 @Service
 @RequiredArgsConstructor
 public class ScrapService {
@@ -33,5 +35,13 @@ public class ScrapService {
         user.addScrap(scrap);
         scrapRepository.save(scrap);
         return ScrapResponseDto.of(scrap.getId(), user.getId(), tour.getId());
+    }
+
+    public Optional<Long> deleteScrap(Long scrapId) {
+        if (scrapRepository.findById(scrapId).isPresent()) {
+            scrapRepository.deleteById(scrapId);
+            return Optional.of(scrapId);
+        } else
+            return Optional.empty();
     }
 }

@@ -6,10 +6,13 @@ import org.springframework.web.bind.annotation.*;
 import sopt.org.MyRealTrip.common.dto.ApiResponseDto;
 import sopt.org.MyRealTrip.controller.dto.request.ScrapRequestDto;
 import sopt.org.MyRealTrip.controller.dto.response.ScrapResponseDto;
+import sopt.org.MyRealTrip.infrastructure.ScrapRepository;
 import sopt.org.MyRealTrip.infrastructure.TourRepository;
 import sopt.org.MyRealTrip.service.ScrapService;
 
 import javax.validation.Valid;
+
+import java.util.Optional;
 
 import static sopt.org.MyRealTrip.common.dto.ApiResponseDto.error;
 import static sopt.org.MyRealTrip.common.dto.ApiResponseDto.success;
@@ -22,6 +25,7 @@ import static sopt.org.MyRealTrip.exception.Success.*;
 public class ScrapController {
     private final ScrapService scrapService;
     private final TourRepository tourRepository;
+    private final ScrapRepository scrapRepository;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
@@ -37,5 +41,14 @@ public class ScrapController {
         }
 
         return success(CREATE_SCRAP_SUCCESS, scrapService.createScrap(request));
+    }
+
+    @DeleteMapping("{scrapId}")
+    public ApiResponseDto deleteScrap(@PathVariable("scrapId") Long scrapId){
+        Optional<Long> id = scrapService.deleteScrap(scrapId);
+        if (id.isPresent()){
+            return success(DELETE_SCRAP_SUCCESS, id);
+        }
+        return error(NOT_FOUND_SCRAP_EXCEPTION);
     }
 }
