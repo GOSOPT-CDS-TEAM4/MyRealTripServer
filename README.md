@@ -10,8 +10,8 @@
 
 
 
-<img width="721" alt="image" src="https://github.com/GOSOPT-CDS-TEAM4/MyRealTripServer/assets/65851554/fdde3473-934c-4162-aa8e-bfa954b95d59">
 
+<img width="721" alt="image" src="https://github.com/GOSOPT-CDS-TEAM4/MyRealTripServer/assets/65851554/bcd75e15-8804-474a-97d0-f89956b7e57a">
 
 </aside>
 <hr>
