@@ -18,6 +18,34 @@
 </br>
 
 
+
+# 📁 Folder 구조
+
+```jsx
+📁 src. 📁 main. 📁 java
+|                   |_ 📁 sopt. 📁 org. 📁 MyRealTrip
+|                   |                          |_ 📁 common
+|                   |                          |_ 📁 controller
+|                   |                          |_ 📁 domain
+|                   |                          |_ 📁 exception
+|                   |                          |_ 📁 infrastructure
+|                   |                          |_ 📁 service
+|                   |                          |_ MyRealTripApplication.java
+|                   |                  
+|                   |
+|                   |_ 📁 resources
+|
+|
+📁 test
+```
+
+
+
+
+<hr>
+</br>
+
+
 ## 😉 API 최종명세서
 
 [최종명세서](https://www.notion.so/go-sopt/1cb7782e4f7b4d5fa256c1ee2ebeb6d8?v=2bf2ae0575d54ca69a8573e2ff69044b)
