@@ -8,7 +8,10 @@
 
 ## 💽 Database ERD
 
-<img width="721" alt="image" src="https://github.com/GOSOPT-CDS-TEAM4/MyRealTripServer/assets/65851554/ab8ad557-b872-4afc-a256-f7dc8e39d1bc">
+
+
+<img width="721" alt="image" src="https://github.com/GOSOPT-CDS-TEAM4/MyRealTripServer/assets/65851554/fdde3473-934c-4162-aa8e-bfa954b95d59">
+
 
 </aside>
 <hr>
