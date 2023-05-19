@@ -4,7 +4,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sopt.org.MyRealTrip.common.dto.ApiResponseDto;
-import sopt.org.MyRealTrip.controller.dto.response.tour.RandomTourListResponseDto;
 import sopt.org.MyRealTrip.exception.Success;
 import sopt.org.MyRealTrip.service.TourService;
 
@@ -20,8 +19,7 @@ public class TourController {
     public ApiResponseDto<RandomTourListResponseDto> getRandomTourList(@RequestHeader("Location") final String location){
         RandomTourListResponseDto randomTourListResponseDto= tourService.getRandomTourList(location);
 
-        return new ApiResponseDto.success(Success.GET_RANDOM_TOURLIST_SUCCESS,randomTourListResponseDto);
-
+        return ApiResponseDto.success(Success.GET_RANDOM_TOURLIST_SUCCESS,randomTourListResponseDto);
 
     }
 }

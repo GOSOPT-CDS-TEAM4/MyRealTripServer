@@ -19,6 +19,7 @@ public class Tour extends AuditingTimeEntity{
     @Column(name = "tour_id")
     private Long id;
 
+    private String title;
     @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name = "location_id")
     private Location location;
@@ -55,13 +56,19 @@ public class Tour extends AuditingTimeEntity{
     public void addReview(Review review){
         reviewList.add(review);
     }
+
+    @Transient
+    private Boolean isScrap; //현재 사용자가 스크랩한지 아닌지 여부
+
+
     @Builder
-    public Tour(Location location, Boolean freeCancel, String itemType,
+    public Tour(String title, Location location, Boolean freeCancel, String itemType,
                 String type, Long minPeople,Long maxPeople, String transfortation,
                 LocalTime requiredTime, String language, String noticeTitle, String notice,
                 String descriptionTitle, String description, Long price, Long discountedPrice,
                 String includedOption, String excludedOption, String image){
 
+        this.title=title;
         this.location=location;
         this.freeCancel=freeCancel;
         this.itemType=itemType;
