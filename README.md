@@ -5,12 +5,25 @@
 <hr>
 </br>
 
+
 ## 😊 역할분담 & 팀원 소개
 
 |담당자|담당 내용|
 |:---|:---|
 |유수화|RDS 세팅,  tour 관련 api|
 |김윤지|프로젝트 세팅, scrap & tourDeail 관련 api|
+
+
+<hr>
+</br>
+
+
+## 😉 API 최종명세서
+
+[최종명세서](https://www.notion.so/go-sopt/1cb7782e4f7b4d5fa256c1ee2ebeb6d8?v=2bf2ae0575d54ca69a8573e2ff69044b)
+
+<img width="891" alt="image" src="https://github.com/Runnect/Runnect-Server/assets/65851554/1b4f6659-72c1-469a-a89c-2f51f299a436">
+
 
 <hr>
 </br>
