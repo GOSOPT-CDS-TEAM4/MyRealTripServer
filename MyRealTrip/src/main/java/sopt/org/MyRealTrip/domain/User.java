@@ -30,7 +30,6 @@ public class User extends AuditingTimeEntity{
     private List<Review> reviewList;
     public void addScrap(Scrap scrap){
         scrapList.add(scrap);
-
     }
 
     public void addReview(Review review){

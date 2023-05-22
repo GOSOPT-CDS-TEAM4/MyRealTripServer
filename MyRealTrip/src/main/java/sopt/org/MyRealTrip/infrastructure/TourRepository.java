@@ -18,4 +18,6 @@ public interface TourRepository extends JpaRepository<Tour, Long> {
     List<Tour> findAllByLocationCityAndType(final String city, final String type);
 
 
+    Optional<Tour> findById(Long tourId);
+    Long countBy();
 }
