@@ -7,8 +7,10 @@ import sopt.org.MyRealTrip.controller.dto.request.ScrapRequestDto;
 import sopt.org.MyRealTrip.controller.dto.response.ScrapResponseDto;
 import sopt.org.MyRealTrip.domain.Scrap;
 import sopt.org.MyRealTrip.domain.Tour;
+import sopt.org.MyRealTrip.domain.User;
 import sopt.org.MyRealTrip.infrastructure.ScrapRepository;
 import sopt.org.MyRealTrip.infrastructure.TourRepository;
+import sopt.org.MyRealTrip.infrastructure.UserRepository;
 
 import java.util.Optional;
 
@@ -17,13 +19,15 @@ import java.util.Optional;
 public class ScrapService {
     private final ScrapRepository scrapRepository;
     private final TourRepository tourRepository;
+    private final UserRepository userRepository;
 
     @Transactional
     public ScrapResponseDto createScrap(ScrapRequestDto scrapRequestDto) {
 
         Tour tour = tourRepository.findById(scrapRequestDto.getTourId()).orElse(null);
-
+        User user = userRepository.findById(1L).get();
         Scrap scrap = Scrap.builder()
+                .user(user)
                 .tour(tour)
                 .build();
 
@@ -31,11 +35,18 @@ public class ScrapService {
         return ScrapResponseDto.of(scrap.getId(), 1L, tour.getId());
     }
 
-    public Optional<Long> deleteScrap(Long scrapId) {
-        if (scrapRepository.findById(scrapId).isPresent()) {
-            scrapRepository.deleteById(scrapId);
-            return Optional.of(scrapId);
-        } else
+    public Optional<Long> deleteScrap(Long tourId) {
+
+        Scrap scrap = scrapRepository.findByUserIdAndTourId(1L,tourId);
+
+        if(scrap==null){
             return Optional.empty();
+        }
+        else{
+            scrapRepository.deleteById(scrap.getId());
+            return Optional.of(scrap.getId());
+
+        }
+
     }
 }

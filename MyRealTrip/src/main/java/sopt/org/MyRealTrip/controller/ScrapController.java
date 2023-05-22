@@ -42,9 +42,9 @@ public class ScrapController {
         return success(CREATE_SCRAP_SUCCESS, scrapService.createScrap(request));
     }
 
-    @DeleteMapping("{scrapId}")
-    public ApiResponseDto deleteScrap(@PathVariable("scrapId") Long scrapId){
-        Optional<Long> id = scrapService.deleteScrap(scrapId);
+    @DeleteMapping("{tourId}")
+    public ApiResponseDto deleteScrap(@PathVariable("tourId") Long tourId){
+        Optional<Long> id = scrapService.deleteScrap(tourId);
         if (id.isPresent()){
             return success(DELETE_SCRAP_SUCCESS, id);
         }
