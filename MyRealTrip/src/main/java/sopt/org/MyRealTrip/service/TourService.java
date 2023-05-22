@@ -3,6 +3,7 @@ package sopt.org.MyRealTrip.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sopt.org.MyRealTrip.controller.dto.response.*;
 import sopt.org.MyRealTrip.controller.dto.response.tour.FilteredTourListResponseDto;
 import sopt.org.MyRealTrip.controller.dto.response.tour.FilteredTourResponseDto;
 import sopt.org.MyRealTrip.controller.dto.response.tour.Price;
@@ -12,6 +13,7 @@ import sopt.org.MyRealTrip.domain.Tour;
 import sopt.org.MyRealTrip.domain.TourCourse;
 import sopt.org.MyRealTrip.domain.User;
 import sopt.org.MyRealTrip.exception.model.BusinessException;
+import sopt.org.MyRealTrip.infrastructure.ReviewRepository;
 import sopt.org.MyRealTrip.infrastructure.TourRepository;
 import sopt.org.MyRealTrip.infrastructure.UserRepository;
 import sopt.org.MyRealTrip.exception.Error;
@@ -23,7 +25,6 @@ import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static java.util.Arrays.asList;
 
 @Service
 @RequiredArgsConstructor
