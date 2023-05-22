@@ -5,14 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sopt.org.MyRealTrip.common.dto.ApiResponseDto;
 import sopt.org.MyRealTrip.controller.dto.response.tour.FilteredTourListResponseDto;
+import sopt.org.MyRealTrip.controller.dto.response.TourResponseDto;
 import sopt.org.MyRealTrip.controller.dto.response.tour.RandomTourResponseDto;
-import sopt.org.MyRealTrip.exception.Error;
 import sopt.org.MyRealTrip.exception.Success;
+import sopt.org.MyRealTrip.exception.Error;
 import sopt.org.MyRealTrip.exception.model.BusinessException;
 import sopt.org.MyRealTrip.service.TourService;
 
 import java.util.List;
-
 
 @RestController
 @RequiredArgsConstructor
@@ -54,4 +54,10 @@ public class TourController {
         return ApiResponseDto.success(Success.GET_FILTERED_TOURLIST_SUCCESS, tourService.getFilterdTourList(city, order, minimumPrice, maximumPrice,tourType,page));
 
     }
+
+    @GetMapping("/detail/{tourId}")
+    public ApiResponseDto<TourResponseDto> getTourDetail(@PathVariable final Long tourId) {
+        return ApiResponseDto.success(Success.GET_TOUR_DETAIL_SUCCESS, tourService.getTourDetail(tourId));
+    }
+
 }

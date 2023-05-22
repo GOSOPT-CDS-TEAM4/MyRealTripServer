@@ -52,7 +52,7 @@ public class Tour extends AuditingTimeEntity{
 
     public void addTourCourse(TourCourse tourCourse){
         tourCourseList.add(tourCourse);
-
+        tourCourseList.add(tourCourse);
     }
 
     public void addReview(Review review){
@@ -96,8 +96,5 @@ public class Tour extends AuditingTimeEntity{
         this.image=image;
         this.tourCourseList=new ArrayList<>();
         this.reviewList=new ArrayList<>();
-
     }
-
-
 }

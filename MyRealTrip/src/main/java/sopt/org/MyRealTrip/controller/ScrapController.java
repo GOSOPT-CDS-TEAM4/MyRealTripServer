@@ -25,12 +25,11 @@ import static sopt.org.MyRealTrip.exception.Success.*;
 public class ScrapController {
     private final ScrapService scrapService;
     private final TourRepository tourRepository;
-    private final ScrapRepository scrapRepository;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ApiResponseDto<ScrapResponseDto> createScrap(@RequestBody @Valid final ScrapRequestDto request) {
-        Long userId = request.getUserId();
+        Long userId = 1L;
         Long tourId = request.getTourId();
 
         if (userId > 1) {
