@@ -62,9 +62,12 @@ public class Tour extends AuditingTimeEntity{
     @Transient
     private Boolean isScrap=false; //현재 사용자가 스크랩한지 아닌지 여부
 
-
     public void setIsScrap(Boolean flag){ isScrap=flag;}
 
+    @Transient
+    private Double averageRating=0.0; //현재 투어아이템의 리뷰 평균별점
+
+    public void setAverageRating(Double averageRating){this.averageRating=averageRating;}
     @Builder
     public Tour(String title, Location location, Boolean freeCancel, String itemType,
                 String type, Long minPeople,Long maxPeople, String transfortation,
