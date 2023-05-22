@@ -1,7 +1,10 @@
-package sopt.org.MyRealTrip.controller.dto.response;
+package sopt.org.MyRealTrip.controller.dto.response.tour;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import sopt.org.MyRealTrip.controller.dto.response.CourseResponseDto;
+import sopt.org.MyRealTrip.controller.dto.response.GuideResponseDto;
+import sopt.org.MyRealTrip.controller.dto.response.ReviewTotalResponseDto;
 
 import java.time.LocalTime;
 import java.util.List;
