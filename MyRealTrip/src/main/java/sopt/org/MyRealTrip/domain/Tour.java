@@ -1,14 +1,16 @@
+
+
 package sopt.org.MyRealTrip.domain;
 
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import java.time.LocalTime;
-import java.util.ArrayList;
-import java.util.List;
+        import lombok.AccessLevel;
+        import lombok.Builder;
+        import lombok.Getter;
+        import lombok.NoArgsConstructor;
+        import java.time.LocalTime;
+        import java.util.ArrayList;
+        import java.util.List;
 
-import javax.persistence.*;
+        import javax.persistence.*;
 
 @Entity
 @Getter
