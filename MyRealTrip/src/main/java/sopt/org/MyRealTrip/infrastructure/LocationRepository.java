@@ -1,4 +1,4 @@
 package sopt.org.MyRealTrip.infrastructure;
 
-public class LocationRepository {
+public interface LocationRepository {
 }

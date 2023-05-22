@@ -8,5 +8,4 @@ import java.util.Optional;
 public interface TourRepository extends Repository<Tour, Long> {
     Optional<Tour> findById(Long tourId);
     Long countBy();
-
 }

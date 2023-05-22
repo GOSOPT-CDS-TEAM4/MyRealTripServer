@@ -32,7 +32,6 @@ public class ScrapService {
                 .tour(tour)
                 .build();
 
-        user.addScrap(scrap);
         scrapRepository.save(scrap);
         return ScrapResponseDto.of(scrap.getId(), user.getId(), tour.getId());
     }
