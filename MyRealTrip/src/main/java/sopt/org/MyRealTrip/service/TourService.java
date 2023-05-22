@@ -3,23 +3,33 @@ package sopt.org.MyRealTrip.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sopt.org.MyRealTrip.controller.dto.response.*;
 import sopt.org.MyRealTrip.controller.dto.response.tour.Price;
 import sopt.org.MyRealTrip.controller.dto.response.tour.RandomTourResponseDto;
+import sopt.org.MyRealTrip.domain.Review;
 import sopt.org.MyRealTrip.domain.Tour;
+import sopt.org.MyRealTrip.domain.TourCourse;
 import sopt.org.MyRealTrip.domain.User;
+import sopt.org.MyRealTrip.exception.Error;
+import sopt.org.MyRealTrip.exception.model.BusinessException;
+import sopt.org.MyRealTrip.infrastructure.ReviewRepository;
 import sopt.org.MyRealTrip.infrastructure.TourRepository;
 import sopt.org.MyRealTrip.infrastructure.UserRepository;
+import sopt.org.MyRealTrip.infrastructure.TourCourseRepository;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class TourService {
     private final TourRepository tourRepository;
     private final UserRepository userRepository;
-
+    private final TourCourseRepository tourCourseRepository;
+    private final ReviewRepository reviewRepository;
 
     @Transactional(readOnly = true)
     public List<RandomTourResponseDto> getRandomTourList(String location) {
@@ -35,12 +45,10 @@ public class TourService {
         }
         //2. 투어리스트 랜덤으로 빼서 자르기
         Collections.shuffle(tourList);
+        List<Tour> randomTourList=tourList;
         if(tourList.size()>5){
-            List<Tour> randomTourList = tourList.subList(0,5);
-
+            randomTourList = tourList.subList(0,5);
         }
-        List<Tour> randomTourList = tourList;
-
 
 
         //3. 유저의 스크랩한 코스가져오기
@@ -67,9 +75,7 @@ public class TourService {
 
 
     }
-    private final TourCourseRepository tourCourseRepository;
-    private final TourRepository tourRepository;
-    private final ReviewRepository reviewRepository;
+
 
     @Transactional
     public TourResponseDto getTourDetail(Long tourId) {
