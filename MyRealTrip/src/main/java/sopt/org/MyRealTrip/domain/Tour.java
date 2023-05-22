@@ -58,8 +58,10 @@ public class Tour extends AuditingTimeEntity{
     }
 
     @Transient
-    private Boolean isScrap; //현재 사용자가 스크랩한지 아닌지 여부
+    private Boolean isScrap=false; //현재 사용자가 스크랩한지 아닌지 여부
 
+
+    public void setIsScrap(Boolean flag){ isScrap=flag;}
 
     @Builder
     public Tour(String title, Location location, Boolean freeCancel, String itemType,

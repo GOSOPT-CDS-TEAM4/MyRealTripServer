@@ -13,8 +13,12 @@ public class Price {
     private Long discountedPrice;
     private Long originalPrice;
 
-    public static Price of(Boolean discountFlag, Long discountedPrice, Long originalPrice){
-        return new Price(discountFlag, discountedPrice, originalPrice);
+    public static Price of(Long discountedPrice, Long originalPrice){
+        if (discountedPrice!=null && discountedPrice<originalPrice){
+            return new Price(true, discountedPrice, originalPrice);
+
+        }
+        return new Price(false, discountedPrice, originalPrice);
 
     }
 }
