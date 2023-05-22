@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sopt.org.MyRealTrip.common.dto.ApiResponseDto;
+import sopt.org.MyRealTrip.controller.dto.response.tour.FilteredTourListResponseDto;
 import sopt.org.MyRealTrip.controller.dto.response.tour.RandomTourResponseDto;
 import sopt.org.MyRealTrip.exception.Error;
 import sopt.org.MyRealTrip.exception.Success;
@@ -32,6 +33,14 @@ public class TourController {
 
         System.out.println(randomTourListResponseDto.toString());
         return ApiResponseDto.success(Success.GET_RANDOM_TOURLIST_SUCCESS,randomTourListResponseDto);
+
+    }
+
+    @GetMapping("/filter")
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponseDto<FilteredTourListResponseDto> gerFilteredTourList(@RequestParam final String name){
+
+        //원래는 validation은 어노테이션 등록해서 해야하지만.... 정말로 시간이 없으므로 나중에 리팩터링 하기로할께용
 
     }
 }

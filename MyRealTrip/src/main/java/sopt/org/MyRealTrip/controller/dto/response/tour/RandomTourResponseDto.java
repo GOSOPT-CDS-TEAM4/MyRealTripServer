@@ -17,6 +17,7 @@ public class RandomTourResponseDto {
     private String image;
     private Boolean isScrap;
 
+
     public static RandomTourResponseDto of(Long id, String name, Price price, String location,
                                            String itemType, String image, Boolean isScrap){
         return new RandomTourResponseDto(id, name,price,location,itemType,image,isScrap);
