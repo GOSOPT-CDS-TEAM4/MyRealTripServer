@@ -13,8 +13,7 @@ public enum Success {
      * 200 OK
      * */
     GET_RANDOM_TOURLIST_SUCCESS(HttpStatus.OK, "투어아이템 리스트 랜덤으로 가져오기 성공"),
-
-
+    DELETE_SCRAP_SUCCESS(HttpStatus.OK, "스크랩 삭제 성공"),
 
     /**
      * 201 CREATED

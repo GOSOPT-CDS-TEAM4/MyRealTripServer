@@ -1,4 +1,6 @@
 package sopt.org.MyRealTrip.infrastructure;
+import org.springframework.data.repository.Repository;
+import sopt.org.MyRealTrip.domain.User;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import sopt.org.MyRealTrip.domain.User;
