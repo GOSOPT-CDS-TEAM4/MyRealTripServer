@@ -3,6 +3,7 @@ package sopt.org.MyRealTrip.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sopt.org.MyRealTrip.controller.dto.response.tour.FilteredTourListResponseDto;
 import sopt.org.MyRealTrip.controller.dto.response.tour.Price;
 import sopt.org.MyRealTrip.controller.dto.response.tour.RandomTourResponseDto;
 import sopt.org.MyRealTrip.domain.Tour;
@@ -65,6 +66,13 @@ public class TourService {
         //5. responseDto 형식에 맞추어 보내기
         return randomTourResponseDtos;
 
+
+    }
+
+    @Transactional(readOnly = true)
+    public FilteredTourListResponseDto getFilterdTourList(String city, String order,
+                                                          Long minimumPrice, Long maximumPrice,
+                                                          String tourType, Long page){
 
     }
 }
