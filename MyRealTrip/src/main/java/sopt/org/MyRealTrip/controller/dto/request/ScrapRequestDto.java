@@ -7,11 +7,9 @@ import lombok.NoArgsConstructor;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class ScrapRequestDto {
-    private Long userId;
 
     private Long tourId;
-    public ScrapRequestDto(Long userId, Long tourId) {
-        this.userId = userId;
+    public ScrapRequestDto(Long tourId) {
         this.tourId = tourId;
     }
 }
