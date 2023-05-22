@@ -3,7 +3,6 @@ package sopt.org.MyRealTrip.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import sopt.org.MyRealTrip.common.dto.ApiResponseDto;
 import sopt.org.MyRealTrip.controller.dto.response.*;
 import sopt.org.MyRealTrip.controller.dto.response.tour.*;
 import sopt.org.MyRealTrip.domain.Review;
