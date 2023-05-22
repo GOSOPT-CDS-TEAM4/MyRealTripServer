@@ -4,8 +4,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import sopt.org.MyRealTrip.common.dto.ApiResponseDto;
+import sopt.org.MyRealTrip.controller.dto.response.tour.BestTourResponseDto;
 import sopt.org.MyRealTrip.controller.dto.response.tour.FilteredTourListResponseDto;
-import sopt.org.MyRealTrip.controller.dto.response.TourResponseDto;
+import sopt.org.MyRealTrip.controller.dto.response.tour.TourResponseDto;
 import sopt.org.MyRealTrip.controller.dto.response.tour.RandomTourResponseDto;
 import sopt.org.MyRealTrip.exception.Success;
 import sopt.org.MyRealTrip.exception.Error;
@@ -58,6 +59,13 @@ public class TourController {
     @GetMapping("/detail/{tourId}")
     public ApiResponseDto<TourResponseDto> getTourDetail(@PathVariable final Long tourId) {
         return ApiResponseDto.success(Success.GET_TOUR_DETAIL_SUCCESS, tourService.getTourDetail(tourId));
+    }
+
+    @GetMapping("/best")
+    @ResponseStatus(HttpStatus.OK)
+    public ApiResponseDto<List<BestTourResponseDto>> getBestTourList(){
+        return ApiResponseDto.success(Success.GET_BEST_TOURLIST_SUCCESS,tourService.getBestTourList());
+
     }
 
 }

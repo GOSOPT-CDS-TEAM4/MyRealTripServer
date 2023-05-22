@@ -4,10 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import sopt.org.MyRealTrip.controller.dto.response.*;
-import sopt.org.MyRealTrip.controller.dto.response.tour.FilteredTourListResponseDto;
-import sopt.org.MyRealTrip.controller.dto.response.tour.FilteredTourResponseDto;
-import sopt.org.MyRealTrip.controller.dto.response.tour.Price;
-import sopt.org.MyRealTrip.controller.dto.response.tour.RandomTourResponseDto;
+import sopt.org.MyRealTrip.controller.dto.response.tour.*;
 import sopt.org.MyRealTrip.domain.Review;
 import sopt.org.MyRealTrip.domain.Tour;
 import sopt.org.MyRealTrip.domain.TourCourse;
@@ -177,6 +174,23 @@ public class TourService {
 
     }
 
+    @Transactional(readOnly = true)
+    public List<BestTourResponseDto> getBestTourList(){
+        List<Tour> bestTourList = tourRepository.findAllByLocationCity("파리");
+        Collections.sort(bestTourList,(o1,o2)->{
+            if((o2.getReviewList().size() - o1.getReviewList().size())>0){return 1;}
+            else{return -1;}
+        });
+
+        List<BestTourResponseDto> bestTourResponseDtos=new ArrayList<>();
+        bestTourList.subList(0,3).stream().forEach(bt->
+            bestTourResponseDtos.add(BestTourResponseDto.of(bt.getId(),bt.getTitle(),bt.getImage(),bt.getLocation().getCity(),
+                    bt.getItemType(),Price.of(bt.getDiscountedPrice(),bt.getPrice())))
+
+        );
+
+        return bestTourResponseDtos;
+    }
 
     @Transactional
     public TourResponseDto getTourDetail(Long tourId) {
