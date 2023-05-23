@@ -15,7 +15,7 @@ import sopt.org.MyRealTrip.service.TourService;
 
 import java.util.List;
 
-@CrossOrigin(originPatterns = "http://15.165.159.193:8080")
+@CrossOrigin(originPatterns = "http://15.165.135.183:8080")
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/tour")
