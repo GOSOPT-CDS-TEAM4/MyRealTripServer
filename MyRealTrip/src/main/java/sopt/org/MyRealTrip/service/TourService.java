@@ -97,16 +97,16 @@ public class TourService {
         Long averageTourPrice = allFilteredTourList.stream().mapToLong(p->p.getPrice()).sum()/allFilteredTourList.size();
 
 
+        //각 투어의 별점계산
+        allFilteredTourList.stream().forEach(alt->{
+            List<Review> altReviewList = alt.getReviewList();
+            if(altReviewList.size()==0){return;}
+            Double sumRating = altReviewList.stream().mapToDouble(r->r.getRating()).sum();
+            Double averageRating = sumRating/alt.getReviewList().size();
+            alt.setAverageRating(averageRating);
+        });
 
         if("별점순".equals(order)){
-            //각 투어의 별점계산
-            allFilteredTourList.stream().forEach(alt->{
-                List<Review> altReviewList = alt.getReviewList();
-                if(altReviewList.size()==0){return;}
-                Double sumRating = altReviewList.stream().mapToDouble(r->r.getRating()).sum();
-                Double averageRating = sumRating/alt.getReviewList().size();
-                alt.setAverageRating(averageRating);
-            });
             //투어 별점순 정렬
             Collections.sort( allFilteredTourList, (o1,o2) ->{
                 if((o2.getAverageRating() - o1.getAverageRating())>0){return 1;}
